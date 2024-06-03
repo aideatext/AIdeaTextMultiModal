@@ -287,3 +287,6 @@ xxhash==3.4.1
 yarg==0.1.9
 yarl==1.9.4
 zipp==3.17.0
+# Include the command to download SpaCy models
+!python -m spacy download es_core_news_lg
+!python -m spacy download en_core_web_trf
