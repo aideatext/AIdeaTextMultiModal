@@ -12,9 +12,14 @@ def initialize_model(device='cpu', dtype='float32'):
     dtype = torch.float32
 
     # Load model
-    model_path = 'openbmb/MiniCPM-V-2'
-    model = AutoModel.from_pretrained(model_path, trust_remote_code=True).to(dtype=dtype)
-    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    # model_path = 'openbmb/MiniCPM-V-2'
+    # model = AutoModel.from_pretrained(model_path, trust_remote_code=True).to(dtype=dtype)
+    # tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+
+    # Load model
+    model = AutoModel.from_pretrained("openbmb/MiniCPM-V-2", trust_remote_code=True).to(dtype=dtype)
+    tokenizer = AutoTokenizer.from_pretrained("openbmb/MiniCPM-V-2", trust_remote_code=True)
+    pipe = pipeline("visual-question-answering", model=model, tokenizer=tokenizer, device=-1 if device == 'cpu' else 0)
 
     model = model.to(device=device, dtype=dtype)
     model.eval()
