@@ -3,7 +3,7 @@ from PIL import Image
 import traceback
 import re
 import torch
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoModel, AutoTokenizer, pipeline
 
 def initialize_model(device='cpu', dtype='float32'):
     if device != 'cpu':
