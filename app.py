@@ -1,7 +1,7 @@
 import streamlit as st
-import spacy
-import spacy_streamlit
-from spacy import load
+from streamlit.components.v1 import components
+from spacy import load, displacy
+from transformers import pipeline
 
 from modules.morph_analysis import analisis_morfologico
 from modules.syntax_analysis import analisis_sintactico
